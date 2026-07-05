@@ -45,8 +45,8 @@
 ## 验证方式
 
 ```bash
-git clone https://github.com/jessicaruan6688-byte/flowedge-trading-agent.git
-cd flowedge-trading-agent
+git clone https://github.com/jessicaruan6688-byte/flowedge-ai-trading-agent.git
+cd flowedge-ai-trading-agent
 npm ci
 npm run test
 npm run build

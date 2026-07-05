@@ -20,7 +20,7 @@
 
 **flowEdge**（AI 港股智能投研系统）
 
-GitHub 仓库：[jessicaruan6688-byte/flowedge-trading-agent](https://github.com/jessicaruan6688-byte/flowedge-trading-agent)
+GitHub 仓库：[jessicaruan6688-byte/flowedge-ai-trading-agent](https://github.com/jessicaruan6688-byte/flowedge-ai-trading-agent)
 
 ---
 
@@ -155,8 +155,8 @@ court-runner 编排器（SSE 流式）
 
 ```bash
 # 1. 克隆仓库
-git clone https://github.com/jessicaruan6688-byte/flowedge-trading-agent.git
-cd flowedge-trading-agent
+git clone https://github.com/jessicaruan6688-byte/flowedge-ai-trading-agent.git
+cd flowedge-ai-trading-agent
 
 # 2. 安装依赖
 npm install
