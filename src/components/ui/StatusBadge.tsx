@@ -42,10 +42,7 @@ const statusConfig: Record<string, { tone: Tone; en: string; zh: string }> = {
   error: { tone: "red", en: "Error", zh: "错误" },
   success: { tone: "green", en: "Success", zh: "成功" },
   Cancelled: { tone: "gray", en: "Cancelled", zh: "已取消" },
-  已完成: { tone: "green", en: "Closed", zh: "已结案" },
-  已上链: { tone: "purple", en: "Attested", zh: "已上链 ✓" },
-  attested: { tone: "purple", en: "Attested", zh: "已上链 ✓" },
-  未上链: { tone: "yellow", en: "Pending proof", zh: "待上链" }
+  已完成: { tone: "green", en: "Closed", zh: "已结案" }
 };
 
 export function StatusBadge({ status, withDot = true }: { status: string; withDot?: boolean }) {

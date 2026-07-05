@@ -1224,8 +1224,8 @@ export function CourtPage() {
                   <Line type="monotone" dataKey="ma5" name="ma5" stroke="#f97316" strokeWidth={1} dot={false} connectNulls strokeDasharray="0" />
                   <Line type="monotone" dataKey="ma20" name="ma20" stroke="#14b8a6" strokeWidth={0.8} dot={false} connectNulls />
                   <Line type="monotone" dataKey="ma60" name="ma60" stroke="#8b5cf6" strokeWidth={0.8} dot={false} connectNulls strokeDasharray="3 2" />
-                  {replayState?.active && klines.length > 0 && (
-                    <ReferenceLine x={chartData[klines.length - 1]?.date} stroke="#f59e0b" strokeDasharray="4 4" strokeWidth={2} label={{ value: `▼ 决策日 ${urlDecisionDate || ""}`, fill: "#d97706", fontSize: 11, fontWeight: 700, position: "insideTopLeft", offset: 5 }} />
+                  {urlDecisionDate && klines.length > 0 && chartData.length > klines.length - 1 && (
+                    <ReferenceLine x={chartData[klines.length - 1]?.date} stroke="#f59e0b" strokeDasharray="4 4" strokeWidth={2} label={{ value: `▼ 决策日 ${urlDecisionDate}`, fill: "#d97706", fontSize: 11, fontWeight: 700, position: "insideTopLeft", offset: 5 }} />
                   )}
                   {verdict && verdict.action === "buy" && (
                     <ReferenceLine y={verdict.price} stroke="#3b82f6" strokeDasharray="4 2" strokeWidth={1} label={{ value: "ENTRY", fill: "#3b82f6", fontSize: 9, position: "right" }} />

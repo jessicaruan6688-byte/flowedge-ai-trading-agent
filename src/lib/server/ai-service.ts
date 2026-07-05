@@ -1,4 +1,4 @@
-import { hashJson, redactSensitive } from "@/lib/server/xapi-trace";
+import { hashJson, redactSensitive } from "@/lib/server/trace-utils";
 import type { AiGenerateOptions, AiGenerateResult, AiHealthStatus } from "@/lib/ai-types";
 
 // ---------------------------------------------------------------------------

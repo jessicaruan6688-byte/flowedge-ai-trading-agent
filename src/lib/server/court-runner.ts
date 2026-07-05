@@ -39,7 +39,7 @@ import {
   savePortfolio,
   saveTraces,
 } from "@/lib/server/case-store";
-import { hashJson } from "@/lib/server/xapi-trace";
+import { hashJson } from "@/lib/server/trace-utils";
 import type {
   AnalystSignal,
   CourtContext,

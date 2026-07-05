@@ -1,7 +1,7 @@
 /**
  * flowEdge — 案件/组合/溯源持久化
  *
- * 参考 ChainPulse agent-store 的原子写入模式：
+ * 参考原子写入模式：
  * - 写临时文件 + rename 保证原子性
  * - 写入队列避免并发写
  * - 启动时预热 cache，之后所有读操作都是同步 O(1)
@@ -12,9 +12,6 @@ import { mkdir, readFile, rename, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import type { TradeCase, Portfolio, TraceRecord } from "@/lib/types";
 import { createPortfolio } from "@/lib/server/portfolio-manager";
-import { hashJson } from "@/lib/server/xapi-trace";
-
-export { hashJson };
 
 // ---------------------------------------------------------------------------
 // Shape
@@ -261,6 +258,3 @@ readFromDisk()
     cache = emptySnapshot();
     cachePrimed = true;
   });
-
-// Avoid unused import warning when hashJson is tree-shaken
-void hashJson;

@@ -1,5 +1,5 @@
 /* -------------------------------------------------------------------------- */
-/*  Precedent — AI Trading Courtroom 核心类型定义                              */
+/*  flowEdge — AI Trading Courtroom 核心类型定义                                 */
 /*  港股交易法庭 Agent：Bull 多方 / Bear 空方 / Judge 法官，                    */
 /*  以判例法（Case Law）形式沉淀长期记忆。                                       */
 /* -------------------------------------------------------------------------- */
@@ -59,7 +59,7 @@ export type OrderStatus = "pending" | "filled" | "cancelled" | "stopped";
 export type SourceMode = "live" | "partial" | "fallback" | "mock" | "replay";
 
 /**
- * XAPI / Agent 调用溯源的发起方。
+ * Agent 调用溯源的发起方。
  */
 export type TraceSource =
   | "bull"
@@ -581,7 +581,7 @@ export interface CourtCase {
   precedentIds: string[];
   /** 本次庭审结束后新沉淀的判例（如通过审核入库）。 */
   newPrecedent?: Precedent;
-  /** 证据集哈希（用于上链锚定）。 */
+  /** 证据集哈希。 */
   evidenceHash: string;
   /** 裁决结果哈希。 */
   decisionHash?: string;
@@ -622,10 +622,10 @@ export interface RunningTask {
 }
 
 /* -------------------------------------------------------------------------- */
-/*  XAPI / Agent 调用溯源                                                      */
+/*  Agent 调用溯源                                                            */
 /* -------------------------------------------------------------------------- */
 
-export interface XApiTrace {
+export interface AgentTrace {
   id: string;
   caseId?: string;
   source: TraceSource;
@@ -693,7 +693,6 @@ export interface WorkspaceAdvancedFilters {
   minimumConfidence: number;
   replaySpeed?: number;
   dataSources: string[]; // "kline" | "news" | "sentiment"
-  xapiClasses?: string;
 }
 
 /**
@@ -749,28 +748,6 @@ export interface MemoryFilters {
 }
 
 /* -------------------------------------------------------------------------- */
-/*  上链回执（可选）                                                           */
-/* -------------------------------------------------------------------------- */
-
-export interface DecisionAttestation {
-  decisionHash?: string;
-  evidenceHash: string;
-  caseId?: string;
-  txHash?: string;
-  walletAddress?: string;
-  block?: bigint | string;
-  timestamp?: number | string;
-  chainId?: number;
-  contractAddress?: string;
-  tokenId?: bigint | string;
-  metadataURI?: string;
-  explorerTxUrl?: string;
-  onChainStatus?: "confirmed" | "mismatch" | "pending" | string;
-}
-
-export type { DecisionAttestation as ReportAttestation };
-
-/* -------------------------------------------------------------------------- */
 /*  Backward-Compatibility Aliases                                             */
 /*  旧代码仍在使用的类型名 —— 保留为别名，保证编译通过。                        */
 /*  新代码请直接使用上方的 CourtCase / JudgeVerdict 等新名称。                  */
@@ -811,20 +788,6 @@ export type LegacyOrderStatus =
   | "cancelled"
   | "stopped_out"
   | "take_profit_hit";
-
-/** @deprecated Use `TraceSource`. New entries replace the old agent naming. */
-export type LegacyTraceSource =
-  | "analyst_bull"
-  | "analyst_bear"
-  | "strategist"
-  | "risk_manager"
-  | "executor"
-  | "reviewer"
-  | "market_data"
-  | "ai"
-  | "xapi"
-  | "chain"
-  | "system";
 
 /** @deprecated Use `Verdict`. */
 export type LegacyVerdict =
@@ -907,7 +870,7 @@ export interface TradeDebate {
   sourceMode?: SourceMode;
   traceIds?: string[];
   verdict?: LegacyVerdict | Verdict;
-  // Legacy ChainPulse fields:
+  // Legacy fields (kept for backward compatibility):
   title?: string;
   topic?: string;
   summary?: string;
@@ -918,7 +881,6 @@ export interface TradeDebate {
   rationale?: string[];
   reportHash?: string;
   taskId?: string;
-  attestation?: DecisionAttestation;
   ai?: import("@/lib/ai-types").AgentAiAudit;
   elapsed?: string | number;
   logs?: TaskLogLine[] | string[];
@@ -991,6 +953,3 @@ export interface MemoryLesson {
   createdAt: string;
   tags: string[];
 }
-
-/** @deprecated Use `stopped` (new) — `stopped_out` / `take_profit_hit` folded into stopped. */
-export type ReportStatus = "已完成" | "已上链" | "未上链";
