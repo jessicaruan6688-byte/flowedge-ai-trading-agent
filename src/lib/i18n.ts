@@ -17,8 +17,6 @@ const translations = {
     "header.notifications": "Notifications",
     "header.operatorWorkspace": "flowEdge Trading",
     "header.portfolioValue": "Portfolio",
-    "header.connectWallet": "Connect Broker",
-    "header.connectedWallet": "Broker Connected",
 
     /* ---------- Navigation (matches navigation.ts) ---------- */
     "nav.workspace": "Trading Desk",
@@ -30,13 +28,7 @@ const translations = {
 
     /* ---------- Shell ---------- */
     "shell.skip": "Skip to content",
-    "shell.evidenceQuota": "Evidence quota",
-    "shell.agentCapacity": "Agent capacity",
     "shell.reasoning": "5 Masters Debate",
-    "shell.evidenceTools": "Risk-First Verdict",
-    "shell.attestationEnabled": "Track Record Learning",
-    "shell.evidenceQuotaDetail": "14,280 / 20,000 calls",
-    "shell.agentCapacityDetail": "Tribunal ready",
 
     /* Sidebar feature bullets (bottom hints) */
     "shell.feature.debate": "5 Masters Debate",
@@ -90,8 +82,6 @@ const translations = {
     "header.notifications": "通知",
     "header.operatorWorkspace": "flowEdge 交易",
     "header.portfolioValue": "组合净值",
-    "header.connectWallet": "连接券商",
-    "header.connectedWallet": "券商已连接",
 
     /* ---------- 导航（与 navigation.ts 一致） ---------- */
     "nav.workspace": "交易台",
@@ -103,13 +93,7 @@ const translations = {
 
     /* ---------- Shell ---------- */
     "shell.skip": "跳到内容区",
-    "shell.evidenceQuota": "证据额度",
-    "shell.agentCapacity": "智能体容量",
     "shell.reasoning": "五位大师辩论",
-    "shell.evidenceTools": "风控优先裁决",
-    "shell.attestationEnabled": "战绩学习进化",
-    "shell.evidenceQuotaDetail": "14,280 / 20,000 次调用",
-    "shell.agentCapacityDetail": "审判团就绪",
 
     /* 侧边栏底部特性列表 */
     "shell.feature.debate": "五位大师辩论",

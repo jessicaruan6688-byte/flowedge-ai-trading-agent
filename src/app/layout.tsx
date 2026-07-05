@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "flowEdge - AI 港股交易大师",
   description:
-    "5 legendary investors debate HK stocks in real-time. Buffett, Soros, Dalio, Lynch, Livermore render verdict with risk controls.",
+    "五位传奇投资人实时辩论港股，结合风控闸门与交易者方程，生成可验证、可回放的交易决策。",
 };
 
 export default function RootLayout({
